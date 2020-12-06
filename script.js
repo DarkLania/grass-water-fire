@@ -12,6 +12,13 @@ const pScore=document.querySelector('#playerScore');
 const cScore=document.querySelector('#enemyScore');
 //Atach narration div for manipulation.
 const narration=document.querySelector('#narration');
+//Atach sounds for play.
+const grassS=document.querySelector('#grassS');
+const waterS=document.querySelector('#waterS');
+const fireS=document.querySelector('#fireS');
+const winS=document.querySelector('#winS');
+const lossS=document.querySelector('#lossS');
+const tieS=document.querySelector('#tieS');
 //Trigger round with selected choice.
 grass.addEventListener('click',wholeRound);
 water.addEventListener('click',wholeRound);
@@ -28,18 +35,24 @@ function randomInt() {
   }
 //Function to compare choices and set a winner.
 function playRound(playerSelection,computerSelection){
-  if (playerSelection=="grass")
+  if (playerSelection=="grass"){
+    grassS.play();
     if(computerSelection=="grass") return("tie");
     else if(computerSelection=="water") return("win");
     else return("loss");
-  else if(playerSelection=="water")
+  }
+  else if(playerSelection=="water"){
+    waterS.play();
     if(computerSelection=="grass") return("loss");
     else if(computerSelection=="water") return("tie");
     else return("win");
-  else
+  }
+  else{
+    fireS.play();
     if(computerSelection=="grass") return("win");
     else if(computerSelection=="water") return("loss");
     else return("tie");
+  }
   }
 //Function for setting global scores.
 function scoreSet(state){
@@ -81,27 +94,38 @@ function roundReport(state, playerSelection, computerSelection){
 //Function for having a whole game round.
 function wholeRound(e){
   if(c==='stale') return;
+  waterS.pause();
+  fireS.pause();
+  grassS.pause();
+  waterS.currentTime=0;
+  fireS.currentTime=0;
+  grassS.currentTime=0;
   let playerSelection=e.target.alt;
   let computerSelection=computerPlay();
   let state=playRound(playerSelection,computerSelection);
   scoreSet(state);
   roundReport(state,playerSelection,computerSelection);
   eventCounter++;
-  if(eventCounter===5) endGame();
+  if(eventCounter===5){
+    c='stale';
+    setTimeout(endGame,3000);
+    return;
+  }
 }
 //Function for presenting end game dialog.
 function endGame(){
-  c="stale";
   let p=document.createElement('p');
   p.classList.add('outcome');
   let pNodes=document.querySelectorAll('.outcome');
   if(playerScore>computerScore){
+    winS.play();
     p.classList.add('finalPW');
     p.textContent=`After hours of engaging battle there are
     no more enemies in sight. Finally you can rest your hands.
     The Light Mages won the Elemental War.`
   }
   else if(playerScore<computerScore){
+    lossS.play();
     p.classList.add('finalPL');
     p.textContent=`Suddenly you begin to loose conciusness.
     Before fading away, you notice you are the last one of
@@ -109,6 +133,7 @@ function endGame(){
     one of the Dark Mages inflicts the final blow.`
   }
   else{
+    tieS.play();
     p.classList.add('finalPT');
     p.textContent=`After ages of battle both groups decide to
     retire, training the next generation of Light and Dark mages
@@ -135,4 +160,10 @@ function reset(){
   cScore.textContent='Dark Mages: 0';
   eventCounter=0;
   c='new';
+  winS.pause();
+  lossS.pause();
+  tieS.pause();
+  winS.currentTime=0;
+  lossS.currentTime=0;
+  tieS.currentTime=0;
 }
