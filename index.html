@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title></title>
-    <!--<link rel="stylesheet" href="styles.css">-->
+    <link rel='stylesheet' href='styles.css'>
   </head>
   <body>
-      <h1></h1>
-   <script src="script.js"></script> <!--type="text/javascript"-->
+    <div id='header'>
+      <h1>Elemental War: Grass-Water-Fire</h1>
+      <h2>You're part of the Light Mages helping on an endless
+          war against the Dark Ones. Choose a spell element to
+          throw at the enemy and pray for it to work.
+          Each fight is decided in five turns: FIGHT!
+      </p>
+      <div id='instructions'>
+        <h3>Grass beats water.</h3>
+        <h3>Water beats fire.</h3>
+        <h3>Fire beats Grass.</h3>
+      </div>
+    </div>
+    <div id='mainContent'>
+      <div id='bntNav'>
+        <button id='grass'><img src="https://img.icons8.com/dusk/64/000000/leaf.png" alt='grass'/></button>
+        <button id='water'><img src="https://img.icons8.com/dusk/64/000000/water.png" alt='water'/></button>
+        <button id='fire'><img src="https://img.icons8.com/plasticine/100/000000/fire-element.png" alt='fire'/></button>
+      </div>
+      <div id='score'>
+        <div id='playerScore'>Light Mages: 0</div>
+        <div id='enemyScore'>Dark Mages: 0</div>
+      </div>
+      <div id='portraits'>
+        <div class='imgContainer'>
+          <img src='resources/images/lavatars.jpg' alt='Light mages portrait'>
+        </div>
+        <div class='imgContainer'>
+          <img src='resources/images/davatars.jpg' alt='Dark mages portrait'>
+        </div>
+      </div>
+      <div id='narration'>
+      </div>
+    </div>
+   <!--<script src='script.js'></script> type='text/javascript'-->
   </body>
 </html>
