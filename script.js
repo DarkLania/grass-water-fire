@@ -2,6 +2,7 @@
 let playerScore=0;
 let computerScore=0;
 let eventCounter=0;
+let c="new";
 //Atach buttons for player choice.
 const grass=document.querySelector('#grass');
 const water=document.querySelector('#water');
@@ -79,6 +80,7 @@ function roundReport(state, playerSelection, computerSelection){
 }
 //Function for having a whole game round.
 function wholeRound(e){
+  if(c==='stale') return;
   let playerSelection=e.target.alt;
   let computerSelection=computerPlay();
   let state=playRound(playerSelection,computerSelection);
@@ -89,7 +91,9 @@ function wholeRound(e){
 }
 //Function for presenting end game dialog.
 function endGame(){
+  c="stale";
   let p=document.createElement('p');
+  p.classList.add('outcome');
   let pNodes=document.querySelectorAll('.outcome');
   if(playerScore>computerScore){
     p.classList.add('finalPW');
@@ -112,4 +116,23 @@ function endGame(){
     The endless war is not over yet.`
   }
   narration.insertBefore(p,pNodes[0]);
+  let resetBtn=document.createElement('button');
+  resetBtn.textContent='PLAY AGAIN?';
+  resetBtn.classList.add('outcome');
+  pNodes=document.querySelectorAll('.outcome');
+  narration.insertBefore(resetBtn,pNodes[0]);
+  resetBtn.addEventListener('click',reset);
+}
+//Reseting scores and narration for new game.
+function reset(){
+  let pNodes=document.querySelectorAll('.outcome');
+  pNodes.forEach(pNode => {
+    narration.removeChild(pNode);
+  });
+  playerScore=0;
+  computerScore=0;
+  pScore.textContent='Light Mages: 0';
+  cScore.textContent='Dark Mages: 0';
+  eventCounter=0;
+  c='new';
 }
