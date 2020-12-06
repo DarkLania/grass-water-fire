@@ -12,3 +12,31 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+/*
+.outcome{
+
+}
+*/
+.winP{
+    color: aqua;
+}
+
+.lossP{
+    color: lightcoral;
+}
+
+.tieP{
+    color: wheat;
+}
+
+.finalPW{
+    color: aqua;
+}
+
+.finalPL{
+    color: lightcoral;
+}
+
+.finalPT{
+    color: wheat;
+}
