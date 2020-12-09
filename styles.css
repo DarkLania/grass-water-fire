@@ -1,9 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+}
+
 html{
     height: 100%;
     width: 100%;
     color: white;
-    padding:0;
-    margin:0;
 }
 
 body{
@@ -15,93 +18,140 @@ body{
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    padding:0;
-    margin:0;
 }
 
 #header{
-    width: 100%;
-    height: 180px;
+    flex:none;
+    height: 300px;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
 }
 
 h1{
+    flex:none;
+    padding-top: 20px;
+    box-sizing: border-box;
+    height: 80px;
     text-align: center;
     font-size: x-large;
+    color: rgb(6, 156, 106);
+    text-shadow: 4px 4px #942c2c;
 }
 
 h2{
+    flex:none;
+    height: 120px;
+    padding-top: 20px;
+    box-sizing: border-box;
     text-align: center;
     font-size: medium;
+    color: rgb(47, 162, 216);
+    text-shadow: 3px 3px #3f11bd;
 }
 
 #instructions{
-    width: 100%;
+    flex:none;
+    height:100px;
+    padding-top: 40px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
 h3{
+    text-align: center;
     font-size: medium;
+    color: rgb(240, 36, 36);
+    text-shadow: 2px 2px #4b4006;
 }
 
 #mainContent{
-    height: 60%;
-    width: 100%;
+    flex: auto;
     display: flex;
     flex-direction: column;
 }
 
 #btnNav{
+    flex: none;
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-evenly;
-    padding:0;
-    margin:0;
-    height: 200px;
-    align;
+    height: 150px;
+    padding-top: 20px;
+    box-sizing: border-box;
 }
 
 #btnNav button{
     height: 130px;
     width: 130px;
+    border-radius: 50%;
+    border: 5px solid rgb(16, 4, 68);
+    background-color: rgb(9, 58, 19);
+}
+
+#btnNav button:hover{
+    border: 10px solid rgb(16, 4, 68);
+    background-color: rgb(49, 179, 98);
 }
 
 #score{
+    flex: none;
+    height: 60px;
+    padding-top: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 100%;
-    height: 200px;
+}
+
+#score div{
+    align-self: flex-end;
+    color: rgb(255, 255, 255);
+    font-size: large;
+}
+
+#playerScore{
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+#enemyScore{
+    padding-left: 15px;
+    box-sizing: border-box;
 }
 
 #portraits{
+    flex:none;
+    height: 240px;
+    padding-top: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    position: static;
 }
 
 #portraits img{
     height: 200px;
     width: 200px;
-    border-radius: 50%;
+    border-radius: 20%;
+    border: 5px solid rgb(16, 4, 68);
 }
 
 #narration{
-    width: 100%;
     display: flex;
     flex-direction: column;
-    height: 500px;
-    position: static;
+    flex:auto;
+    padding-top: 20px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-/*
 .outcome{
-
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
-*/
 .winP{
     color: aqua;
 }
@@ -115,30 +165,39 @@ h3{
 }
 
 .finalPW{
-    color: aqua;
+    font-size: x-large;
+    color: rgb(6, 156, 106);
+    text-shadow: 4px 4px #942c2c;
 }
 
 .finalPL{
-    color: lightcoral;
+    font-size: x-large;
+    color: rgb(240, 36, 36);
+    text-shadow: 4px 4px #4b4006;
 }
 
 .finalPT{
     color: wheat;
+    font-size: x-large;
+    text-shadow: 4px 4px #942c2c;
 }
 
 #footer{
-    width: 100%;
-    height: 20px;
-    position: absolute;
-    top: 100%;
+    flex:none;
+    top:90%;
+    height: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: wheat;
+    color: rgb(177, 155, 155);
 }
 
 a{
     text-decoration: none;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    align-self: flex-end;
+    text-shadow: 2px 2px #470303;
 }
 
 a:visited{
@@ -150,6 +209,21 @@ a:hover{
     text-decoration: underline;
 }
 
+.pAgain{
+    height: 40px;
+    width: 300px;
+    font-size: larger;
+    border: 2px solid rgb(16, 4, 68);
+    background-color: rgb(9, 58, 19);
+    color: rgb(8, 1, 0);
+}
+
+.pAgain:hover{
+    border: 5px solid rgb(16, 4, 68);
+    background-color: rgb(49, 179, 98);
+}
+
 audio{
     display: none;
+    
 }

@@ -142,10 +142,14 @@ function endGame(){
   }
   narration.insertBefore(p,pNodes[0]);
   let resetBtn=document.createElement('button');
+  let btnContainer=document.createElement('div');
+  btnContainer.classList.add('outcome');
+  btnContainer.classList.add('rBtn');
+  resetBtn.classList.add('pAgain');
   resetBtn.textContent='PLAY AGAIN?';
-  resetBtn.classList.add('outcome');
   pNodes=document.querySelectorAll('.outcome');
-  narration.insertBefore(resetBtn,pNodes[0]);
+  btnContainer.appendChild(resetBtn);
+  narration.insertBefore(btnContainer,pNodes[0]);
   resetBtn.addEventListener('click',reset);
 }
 //Reseting scores and narration for new game.
